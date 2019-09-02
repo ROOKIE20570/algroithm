@@ -18,10 +18,9 @@ func main() {
 	list.insertAfter(list.head, 6)
 	list.insertAfter(list.head, 7)
 	list.insertAfter(list.head, 8)
-	list.insertAfter(list.head, 7)
-	list.insertAfter(list.head, 6)
-	list.insertAfter(list.head, 5)
 
+	list.printList()
+	list.reserver()
 	list.printList()
 
 }
@@ -65,6 +64,17 @@ func (list *linkedList) reserver() {
 
 	var pre *listNode = nil //暂存前一个结点
 
-	cur :=
+	cur := list.head.next //暂存当前遍历到的结点
 
+	for cur != nil {
+		//从后向前摆放
+		tmp := cur.next
+		cur.next = pre
+		pre = cur
+		cur = tmp
+	}
+
+	list.head.next = pre
 }
+
+
