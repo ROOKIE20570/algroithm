@@ -9,7 +9,7 @@ type listNode struct {
 
 type linkedList struct {
 	head   *listNode
-	length uint
+	length int
 }
 
 func main() {
@@ -54,7 +54,7 @@ func (list *linkedList) insertAfter(node *listNode, val int) bool {
 	}
 
 	node.next = newNode
-
+	list.length++
 	return true
 
 }
@@ -124,7 +124,7 @@ func (this *linkedList) deleteBottomN(n int) {
 		slow = slow.next
 	}
 
-	slow.next = slow.next.next	
+	slow.next = slow.next.next
 
 }
 
@@ -156,7 +156,6 @@ func MergeSortedList(l1, l2 *linkedList) *linkedList {
 	} else if nil != curl2 {
 		cur.next = curl2
 	}
-
 
 
 	return l
