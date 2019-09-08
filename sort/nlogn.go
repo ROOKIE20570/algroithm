@@ -1,13 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	a := []int{1, 78, 54, 77,}
-	quickSort(a)
-	fmt.Println(a)
+	fmt.Println(1 >> 1)
 }
 
 func test(a []int) {
@@ -71,11 +67,11 @@ func quickSortC(arr []int, i, j int) {
 	}
 
 	p := partition(arr, i, j)
-	quickSortC(arr,i,p-1)
-	quickSortC(arr,p+1,j)
+	quickSortC(arr, i, p-1)
+	quickSortC(arr, p+1, j)
 }
 
-func partition(arr []int, p, r int) int{
+func partition(arr []int, p, r int) int {
 	pivot := arr[r] //取最后一个作为分界
 	i := p          //暂存第一个元素
 	for j := p; j < r; j++ { //迭代一圈数据
