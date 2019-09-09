@@ -16,15 +16,16 @@ var tree *Node
 
 
 func main() {
-	insert(5)
-	insert(6)
-	insert(1)
-	insert(3)
-	insert(8)
-	insert(7)
-	insert(12)
-	insert(2)
-	preOrder(tree)
+	//insert(5)
+	//insert(6)
+	//insert(1)
+	//insert(3)
+	//insert(8)
+	//insert(7)
+	//insert(12)
+	//insert(2)
+	//preOrder(tree)
+	fmt.Println(test(5))
 	
 }
 
@@ -70,3 +71,10 @@ func del(){
 
 }
 
+func test(n int) int {
+	if n == 1 {
+		return 1
+	}
+
+	return test(n - 1)* n
+}

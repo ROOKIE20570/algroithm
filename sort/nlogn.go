@@ -3,7 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(1 >> 1)
+	a := []int{1,2,5,7,1,5,2}
+	quickSort(a)
+	fmt.Println(3/2)
 }
 
 func test(a []int) {
@@ -71,17 +73,32 @@ func quickSortC(arr []int, i, j int) {
 	quickSortC(arr, p+1, j)
 }
 
+//func partition(arr []int, p, r int) int {
+//	pivot := arr[r] //取最后一个作为分界
+//	i := p          //暂存第一个元素
+//	for j := p; j < r; j++ { //迭代一圈数据
+//		if arr[j] < pivot { //如果比分界点小
+//			arr[i], arr[j] = arr[j], arr[i]
+//			i++
+//		}
+//	}
+//
+//	arr[i], arr[r] = arr[r], arr[i]
+//
+//	return i
+//}
+
+
 func partition(arr []int, p, r int) int {
-	pivot := arr[r] //取最后一个作为分界
-	i := p          //暂存第一个元素
-	for j := p; j < r; j++ { //迭代一圈数据
-		if arr[j] < pivot { //如果比分界点小
-			arr[i], arr[j] = arr[j], arr[i]
+	pivot := arr[r]
+	i := p
+	for j := p;j< r;j++ {
+		if arr[j] < pivot {
+			arr[i],arr[j] = arr[j],arr[i]
 			i++
 		}
 	}
 
-	arr[i], arr[r] = arr[r], arr[i]
-
+	arr[i],arr[r] = arr[r],arr[i]
 	return i
 }
