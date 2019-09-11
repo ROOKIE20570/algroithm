@@ -31,6 +31,8 @@ func main() {
 
 }
 
+
+
 func initList() *linkedList {
 	return &linkedList{newListNode(0), 0}
 }

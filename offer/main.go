@@ -1,11 +1,6 @@
 package main
 
-import "fmt"
-
 func main() {
-	arr := []int{2, 3, 1, 0, 2, 5}
-	fmt.Print(findUnique(arr))
-
 }
 
 //查找数组中重复的数字
@@ -26,8 +21,6 @@ func findUnique(arr []int) bool {
 	}
 	return false
 }
-
-
 
 func swap(arr []int, i, j int) {
 	arr[i], arr[j] = arr[j], arr[i]
