@@ -17,10 +17,22 @@ func (arr myArray) unique() []int {
 	return newArr
 }
 
-func main() {
-	a := myArray{1, 11, 5, 6, 6, 8, 11}
+func (arr myArray)reserve()  {
+	left := 0
+	right := len(arr) - 1
+	for right > left{
+		arr[left],arr[right] = arr[right],arr[left]
+		left++
+		right--
+	}
 
-	fmt.Println(a.unique())
+}
+
+func main() {
+	a := myArray{1, 2, 3, 4, 5, 6, 7,8}
+
+	a.reserve()
+	fmt.Println(a)
 }
 
 func mergeSortedArr(arr1, arr2 myArray) myArray {
