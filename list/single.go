@@ -14,17 +14,20 @@ type list struct {
 
 func main() {
 	l := newList()
-	insertToTail(l, 5)
-	insertToTail(l, 4)
+	insertToTail(l, 2)
 	insertToTail(l, 3)
-	t := insertToTail(l, 2)
-	insertAfter(t, 385)
+	insertToTail(l, 4)
+	insertToTail(l, 5)
 
-	insertToTail(l, 7)
-	insertToTail(l, 9)
+	l1 := newList()
+	insertToTail(l1, 1)
+	insertToTail(l1, 5)
+	insertToTail(l1, 7)
+	insertToTail(l1, 9)
 
-	deleteBottomN(l, 0)
-	printList(l)
+	//deleteBottomN(l, 0)
+	ls := mergeSortedList(l,l1)
+	printList(ls)
 
 }
 
@@ -122,12 +125,60 @@ func deleteBottomN(l *list, n int) {
 	deleteNode(l, slow)
 }
 
-func reserver() {
+func reserver(l *list) {
+	if l.head == nil || l.head.next == nil || l.head.next.next == nil {
+		return
+	}
+	var pre *node = nil
+
+	cur := l.head.next
+
+	for cur != nil {
+		tmp := cur.next
+		cur.next = pre
+		pre = cur
+		cur = tmp
+	}
+
+	l.head.next = pre
 
 }
 
-func mergeSortedList() {
+func mergeSortedList(l1, l2 *list) *list {
+	if l1.head == nil || l1.head.next == nil {
+		return l2
+	}
 
+	if l2.head == nil || l2.head.next == nil {
+		return l1
+	}
+
+	p1 := l1.head.next
+	p2 := l2.head.next
+	l3 := newList()
+	p3 := l3.head
+	for p1 != nil && p2 != nil {
+		if p1.data < p2.data {
+			p3.next = p1
+			p1 = p1.next
+		} else {
+			p3.next = p2
+			p2 = p2.next
+		}
+
+		p3 = p3.next
+
+	}
+
+	if p1 != nil {
+		p3.next = p1
+	}
+
+	if p2 !=nil {
+		p3.next = p2
+	}
+
+	return l3
 }
 
 func printList(myList *list) {

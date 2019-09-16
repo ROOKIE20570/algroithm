@@ -3,8 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	a := []int{1, 5, 2, 6, 8, 4,}
-	fmt.Println(selection(a))
+	data := []int{1, 2, 3}
+	for _, v := range data {
+		v = v+1
+	}
+
+	fmt.Println(data)
 }
 
 func bubble(a []int) []int {
