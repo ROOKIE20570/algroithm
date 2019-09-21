@@ -1,6 +1,13 @@
 package main
 
+import (
+	"sync"
+)
+
+var mu sync.Mutex
 func main() {
+
+
 }
 
 //查找数组中重复的数字

@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type stack struct {
 	len  int
 	top  int
@@ -7,12 +9,22 @@ type stack struct {
 }
 
 func main()  {
-
+	st := initStack(5)
+	st.push(5)
+	st.push(3)
+	st.push(6)
+	st.push(8)
+	fmt.Println(st.pop())
+	fmt.Println(st.pop())
+	fmt.Println(st.pop())
+	fmt.Println(st.pop())
+	fmt.Println(st.pop())
 }
 func initStack(cap int) *stack {
 	s := new(stack)
 	s.len = cap
 	s.top = -1
+	s.data = make([]int,cap)
 
 	return s
 
