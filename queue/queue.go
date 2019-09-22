@@ -25,8 +25,16 @@ func (myQueue *queue) enQueue(val int) bool{
 	}
 
 	myQueue.data[myQueue.tail] = val
+	myQueue.tail++
+	return true
 }
 
-func pop() {
+func (myQueue *queue)deQueue() int{
+	if myQueue.head == myQueue.tail {
+		return 0
+	}
 
+	v := myQueue.data[myQueue.head]
+	myQueue.head++
+	return v
 }
