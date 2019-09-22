@@ -19,8 +19,8 @@ func newQueue(cap int) *queue {
 	myQueue.cap = cap
 	return myQueue
 }
-func (myQueue *queue) enQueue(val int) bool{
-	if myQueue.tail == myQueue.cap{
+func (myQueue *queue) enQueue(val int) bool {
+	if myQueue.tail == myQueue.cap {
 		return false
 	}
 
@@ -29,7 +29,7 @@ func (myQueue *queue) enQueue(val int) bool{
 	return true
 }
 
-func (myQueue *queue)deQueue() int{
+func (myQueue *queue) deQueue() int {
 	if myQueue.head == myQueue.tail {
 		return 0
 	}
@@ -37,4 +37,8 @@ func (myQueue *queue)deQueue() int{
 	v := myQueue.data[myQueue.head]
 	myQueue.head++
 	return v
+}
+
+func (myQueue *queue) print() {
+
 }
