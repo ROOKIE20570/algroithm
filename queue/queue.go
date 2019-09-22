@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type queue struct {
 	cap  int
 	data []int
@@ -40,5 +42,13 @@ func (myQueue *queue) deQueue() int {
 }
 
 func (myQueue *queue) print() {
-
+	if myQueue.head == myQueue.tail {
+		fmt.Println( "empty queue")
+	}
+	result := "head"
+	for i := myQueue.head; i <= myQueue.tail-1; i++ {
+		result += fmt.Sprintf("<-%+v", myQueue.q[i])
+	}
+	result += "<-tail"
+	fmt.Println(result)
 }
