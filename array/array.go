@@ -35,6 +35,7 @@ func main() {
 	fmt.Println(a)
 }
 
+//归并排序
 func mergeSortedArr(arr1, arr2 myArray) myArray {
 	if len(arr1) == 0 {
 		return arr2
