@@ -63,7 +63,7 @@ func (myGragh *gragh) bfs(s, t int) {
 					break
 				}
 
-				stash = append(stash,k)
+				stash = append(stash, k)
 				visted[k] = true
 			}
 		}
@@ -71,11 +71,46 @@ func (myGragh *gragh) bfs(s, t int) {
 	}
 
 	if isFound {
-		printPrev(prev,s,t)
-	}else {
+		printPrev(prev, s, t)
+	} else {
 		fmt.Println("error")
 	}
 	//visted[s] = true
+
+}
+
+var found = false
+
+func (myGragh *gragh) dfs(s, t int) {
+	visted := make([]bool, myGragh.vertex)
+
+	visted[s] = true
+	prev := make([]int, myGragh.vertex)
+	for index := range prev {
+		prev[index] = -1
+	}
+
+}
+
+func (myGragh *gragh) recurDfs(w, t int, visted []bool, prev []int) {
+	if found {
+		return
+	}
+
+	visted[w] = true
+	if w == t {
+		found = true
+		return
+	}
+
+	for e := myGragh.data[w].Front(); e != nil; e = e.Next() {
+		val := e.Value.(int)
+		if !visted[val] {
+			visted[val] = true
+			prev[val] = w
+			myGragh.recurDfs(val,t,visted,prev)
+		}
+	}
 
 }
 
