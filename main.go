@@ -1,19 +1,12 @@
 package main
 
-import (
-	"C"
-	"sync"
-)
-//#include <stdio.h>
-var total struct {
-	sync.Mutex
-	value int64
+type ListNode struct {
+	Val  int
+	Next *ListNode
 }
 
-func main() {
-
-	println("hello cgo")
-
-	C.puts(C.CString("Hello, World\n"))
-
+type heap struct {
+	cap    int
+	stored int
+	data   []*ListNode
 }

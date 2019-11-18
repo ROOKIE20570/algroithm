@@ -11,7 +11,6 @@ type queue struct {
 
 func main() {
 	myQueue := newQueue(5)
-
 }
 
 func newQueue(cap int) *queue {
